@@ -344,32 +344,33 @@ class WP_Auth0_Admin{
 
         $input['default_login_redirection'] = esc_url_raw($input['default_login_redirection']);
         $home_url = home_url();
+        // $home_url = 'http://devportal.gem-nc-stg.com';
 
         if (empty($input['default_login_redirection']))
         {
             $input['default_login_redirection'] = $home_url;
         }
-        else
-        {
-            if (strpos($input['default_login_redirection'], $home_url) !== 0)
-            {
-                if (strpos($input['default_login_redirection'], 'http') === 0)
-                {
-                    $input['default_login_redirection'] = $home_url;
-
-                    $error = __("The 'Login redirect URL' cannot point to a foreign page.", WPA0_LANG);
-                    self::add_validation_error($error);
-                }
-            }
-
-            if (strpos($input['default_login_redirection'], 'action=logout') !== false)
-            {
-                $input['default_login_redirection'] = $home_url;
-
-                $error = __("The 'Login redirect URL' cannot point to the logout page.", WPA0_LANG);
-                self::add_validation_error($error);
-            }
-        }
+        // else
+        // {
+        //     if (strpos($input['default_login_redirection'], $home_url) !== 0)
+        //     {
+        //         if (strpos($input['default_login_redirection'], 'http') === 0)
+        //         {
+        //             $input['default_login_redirection'] = $home_url;
+        //
+        //             $error = __("The 'Login redirect URL' cannot point to a foreign page.", WPA0_LANG);
+        //             self::add_validation_error($error);
+        //         }
+        //     }
+        //
+        //     if (strpos($input['default_login_redirection'], 'action=logout') !== false)
+        //     {
+        //         $input['default_login_redirection'] = $home_url;
+        //
+        //         $error = __("The 'Login redirect URL' cannot point to the logout page.", WPA0_LANG);
+        //         self::add_validation_error($error);
+        //     }
+        // }
 
         $error = "";
         $completeBasicData = true;

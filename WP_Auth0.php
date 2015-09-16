@@ -208,7 +208,8 @@ class WP_Auth0 {
             $login_url = "https://". WP_Auth0_Options::get('domain') .
                          "/authorize?response_type=code&scope=openid%20profile".
                          "&client_id=".WP_Auth0_Options::get('client_id') .
-                         "&redirect_uri=".site_url('/index.php?auth0=1') .
+                         "&redirect_uri=http://devportal.gem-nc-stg.com/login".
+                        //  "&redirect_uri=".site_url('/index.php?auth0=1') .
                          "&state=".urlencode($state).
                          "&connection=".WP_Auth0_Options::get('auto_login_method');
 

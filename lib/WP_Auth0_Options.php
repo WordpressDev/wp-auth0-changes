@@ -65,7 +65,8 @@ class WP_Auth0_Options {
             'gravatar' => true,
             'jwt_auth_integration' => false,
             // 'auto_provisioning' => true,
-            'default_login_redirection' => home_url(),
+            // 'default_login_redirection' => home_url(),
+            'default_login_redirection' => 'http://devportal.gem-nc-stg.com/login',
         );
     }
 }
